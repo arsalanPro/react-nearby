@@ -1,0 +1,16 @@
+.notification {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  padding: 4px;
+}
+
+.success {
+  background: #3f5f0e;
+  border: solid #3f5f0e;
+}
+
+.error {
+  background: #e45050;
+  border: solid #e45050;
+}
