@@ -71,24 +71,4 @@ describe("Search Component", () => {
       status: "Success",
     });
   });
-
-  // it("should set error notification in case of no response", async () => {
-  //   let searchByLocationSpy = jest.spyOn(commonService, "searchByLocation");
-  //   let setNotificationSpy = jest.spyOn(notificationActions, "setNotification");
-
-  //   searchByLocationSpy.mockReturnValue(Promise.resolve([{}, {}]));
-  //   wrapper.find(".search__submit").first().simulate("click");
-  //   expect(searchByLocationSpy).toHaveBeenCalled();
-
-  //   expect(searchByLocationSpy).toHaveBeenCalledWith(
-  //     { lng: 2, lat: 2 },
-  //     "Bank"
-  //   );
-  //   await Promise.reject();
-
-  //   expect(setNotificationSpy).toHaveBeenCalledWith({
-  //     message: `Unable to fetch ${Place[0]}`,
-  //     status: "Error",
-  //   });
-  // });
 });
