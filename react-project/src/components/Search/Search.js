@@ -40,9 +40,14 @@ const Search = () => {
   return (
     <Fragment>
       <div className="search">
-        <div className="search__left">BrowserStack</div>
+        <h1 className="search__left">BrowserStack</h1>
+
         <div className="search__center">
-          <select className="search__select" onChange={setPlaceHandler}>
+          <select
+            className="search__select"
+            onChange={setPlaceHandler}
+            aria-label="Select Place"
+          >
             <option key="dummy" value="none" disabled selected hidden>
               Search here...
             </option>

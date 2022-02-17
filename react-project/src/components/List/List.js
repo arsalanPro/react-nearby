@@ -10,7 +10,7 @@ const List = () => {
       {searchResults.map((result, i) => {
         return (
           <div key={i} className="list__item">
-            <span className="list__item--heading">{result.address}</span>
+            <span className="list__item__heading">{result.address}</span>
             <p>{result.attributes.Place_addr}</p>
           </div>
         );

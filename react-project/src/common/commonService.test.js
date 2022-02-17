@@ -44,29 +44,29 @@ describe("Common Service", () => {
     expect(res).toEqual("Dummy Place");
   });
 
-  //   it("should return the latitude and longitude of user", async () => {
-  //     const mockGeoLocation = {
-  //       getCurrentPosition: jest
-  //         .fn()
-  //         .mockImplementation((success) =>
-  //           Promise.resolve(success({ coords: { latitude: 2, longitude: 2 } }))
-  //         ),
-  //     };
+  it("should return the latitude and longitude of user", async () => {
+    const mockGeoLocation = {
+      getCurrentPosition: jest
+        .fn()
+        .mockImplementation((success) =>
+          Promise.resolve(success({ coords: { latitude: 2, longitude: 2 } }))
+        ),
+    };
 
-  //     global.navigator.geolocation = mockGeoLocation;
+    global.navigator.geolocation = mockGeoLocation;
 
-  //     const getAddressFromLatLngSpy = jest.spyOn(
-  //       CommonService,
-  //       "getAddressFromLatLng"
-  //     );
+    const getAddressFromLatLngSpy = jest.spyOn(
+      CommonService,
+      "getAddressFromLatLng"
+    );
 
-  //     getAddressFromLatLngSpy.mockReturnValue(Promise.resolve("Dummy Place"));
-  //     const myLocaiton = await CommonService.getMyLocation();
-  //     expect(getAddressFromLatLngSpy).toHaveBeenCalled();
-  //     expect(myLocaiton).toEqual({
-  //       lat: 2,
-  //       lng: 2,
-  //       cityName: "Dummy Place",
-  //     });
-  //   });
+    getAddressFromLatLngSpy.mockReturnValue(Promise.resolve("Dummy Place"));
+    const myLocaiton = await CommonService.getMyLocation();
+    expect(getAddressFromLatLngSpy).toHaveBeenCalled();
+    expect(myLocaiton).toEqual({
+      lat: 2,
+      lng: 2,
+      cityName: "Dummy Place",
+    });
+  });
 });

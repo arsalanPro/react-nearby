@@ -37,10 +37,14 @@ export const getMyLocation = () => {
           lng: position.coords.longitude,
         };
 
-        pos.cityName = await getAddressFromLatLng(
-          position.coords.latitude,
-          position.coords.longitude
-        );
+        try {
+          pos.cityName = await getAddressFromLatLng(
+            position.coords.latitude,
+            position.coords.longitude
+          );
+        } catch (err) {
+          console.log("Error found", err);
+        }
 
         res(pos);
       },
@@ -55,11 +59,13 @@ export const getAddressFromLatLng = async (lat, lng) => {
   const url =
     "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode";
 
-  return fetch(
-    `${url}?f=pjson&location=${lng},${lat}&token=${ARCGIS_APIKEY}`
-  ).then(async (response) => {
-    const res = await response.json();
+  return fetch(`${url}?f=pjson&location=${lng},${lat}&token=${ARCGIS_APIKEY}`)
+    .then(async (response) => {
+      const res = await response.json();
 
-    return res.address.City;
-  });
+      return res.address.City;
+    })
+    .catch((err) => {
+      return err;
+    });
 };
